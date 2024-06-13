@@ -1,0 +1,40 @@
+@use '../../../../shared/styles/mixins/screens' as screens;
+
+.bttn {
+    font-family: var(--siteFontFamilySecondary);
+    font-weight: var(--siteTextWeight);
+    background: var(--sitePrimaryButtonColour);
+    color: var(--sitePrimaryButtonTextColour);
+    border: solid 1px var(--sitePrimaryButtonOutlineColour);
+
+    border-radius: 4px;
+    font-style: normal;
+    font-size: 22px;
+    text-align: center;
+    padding: 13px 13px;
+    cursor: pointer;
+    min-width: 200px;
+    
+    @include screens.respond-to(tablet) {
+        font-size: 20px;
+    }
+
+    &:hover {
+        background-color: var(--sitePrimaryButtonInteractionColour);
+        border-color: var(--sitePrimaryButtonInteractionColour);
+    }
+
+    &__secondary {
+        background-color: var(--siteSecondaryButtonColour);
+        color: var(--siteSecondaryButtonTextColour);
+        border-color:  var(--siteSecondaryButtonOutlineColour);
+
+        &:hover {
+            color: var(--siteSecondaryButtonTextInteractionColour);
+        }
+    }
+
+    &__full {
+        width: 100%;
+    }
+}

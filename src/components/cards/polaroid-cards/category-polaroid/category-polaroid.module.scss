@@ -1,0 +1,70 @@
+@use '../../../../styles/mixins/screens' as screens;
+
+
+.card {
+    background: var(--siteCardBackgroundColour);
+    font-family: var(--siteFontFamilyPrimary);
+    border-radius: var(--siteImageBorderRadius);
+    box-shadow: var(--siteImageBoxShadow);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    padding: 19px;
+    width: 296px;
+
+    @include screens.respond-to(tablet) {
+        width: 268px;
+    }
+
+    @include screens.respond-to(desktop) {
+        width: 296px;
+    }
+
+    @include screens.respond-to(desktop) {
+        width: calc((var(--containerMaxWidth) - 40px * 3)  / 4 );   
+    }
+
+
+    img {
+        height: 288px;
+        width: 100%;
+        border-radius: 4px;
+        object-fit: cover;
+
+        @include screens.respond-to(tablet) {
+            height: 246px;
+        }
+
+        @include screens.respond-to(tablet) {
+            height: 266px;
+        }
+
+        @include screens.respond-to(desktop) {
+            height: 288px;
+        }
+    }
+
+    span {
+        font-size: 25px;
+        line-height: 35px;
+        margin-top: 13px;
+        letter-spacing: -0.1rem;
+        color: var(--siteCardTextPrimaryColour);
+
+        @include screens.respond-to(tablet-small) {
+            font-size: 30px;
+            margin-top: 19px;
+        }
+
+        @include screens.respond-to(tablet) {
+            font-size: 25px;
+            margin-top: 15px;
+        }
+
+        @include screens.respond-to(desktop) {
+            font-size: 27px;
+            margin-top: 19px;
+        }
+    }
+}

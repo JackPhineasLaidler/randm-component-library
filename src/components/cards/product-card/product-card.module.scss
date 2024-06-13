@@ -1,0 +1,68 @@
+@use '../../../styles/mixins/screens' as screens;
+
+
+.card {
+    display: flex;
+    width: 100%;
+
+    &:hover {
+        background-color: var(--siteCardHoverColour);
+        cursor: pointer;
+        margin: -10px;
+        padding: 10px;
+        border-radius: 4px;
+    }
+
+    img {
+        max-width: 135px;
+        min-width: 135px;
+        height: 144px;
+        margin-right: 20px; 
+        margin-bottom: 0px;
+        border-radius: var(--siteImageBorderRadius);
+        box-shadow: var(--siteImageBoxShadow);
+    }
+
+    &__details {
+        justify-content: space-between;
+        overflow: hidden;
+        position: relative;
+        font-family: 'Oldenburg';
+        flex-direction: column;
+        display: flex;
+    }
+
+    &__name {
+        margin-bottom: 10px;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 19px;
+        color: var(--siteCardTextPrimaryColour);
+        margin-bottom: 6px;
+    }
+
+    &__description {
+        line-height: 1.2em;
+        height: 3.6em;
+        color: var(--siteCardTextSecondaryColour);
+        overflow: hidden;
+        position: relative;
+        font-size: 16px;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__price {
+        font-size: 18px;
+        color: var(--siteCardTextPrimaryColour);
+        padding-top: 10px;
+        width: 100%;
+        font-family: 'inter';
+    }
+}

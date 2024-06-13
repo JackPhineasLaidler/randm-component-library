@@ -1,0 +1,91 @@
+@use '../../../../../shared/styles/mixins/screens' as screens;
+
+.product {
+    width: calc(100% - 96px - 16px);
+
+    @include screens.respond-to(tablet) {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        width: 100%;
+
+    }
+
+    &__name {
+        font-size: 22px;
+        line-height: 26px;
+        letter-spacing: -0.06em;
+        font-weight: var(--siteTextWeight);
+        margin-bottom: 16px;
+    }
+
+    &__description {
+        display: none;
+
+        @include screens.respond-to(tablet) {
+            line-height: 1.2em;
+            color: var(--siteTextColourLight);
+            overflow: hidden;
+            position: relative;
+            font-size: 15px;
+            -webkit-box-orient: vertical;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 12px;
+        }
+    }
+
+    &__variants {
+        line-height: 19px;
+        font-size: 15px;
+        color: var(--siteTextColourLight);
+        margin-bottom: 18px;
+
+        @include screens.respond-to(tablet) { 
+            margin-bottom: 14px;
+        }
+
+        li {
+            display: block;
+            margin-bottom: 4px;
+
+            @include screens.respond-to(tablet) {
+                display: inline;
+            }
+
+            &:not(:last-of-type) {
+                @include screens.respond-to(tablet) {
+                margin-right: 4px;
+
+                    &:after {
+                        content: '|';
+                        margin-left: 4px;
+                        color: var(--siteTextColour);
+                    }
+                }
+            }
+
+            b {
+                color: var(--siteTextColour);
+                letter-spacing: -0.06em;
+                font-weight: 400;
+            }
+        }
+    }
+
+    &__price {
+        letter-spacing: -0.06em;
+        color: var(--siteTextColour);
+        margin-bottom: 0px;
+        display: block;
+        line-height: 1;
+        font-size: 18px;
+        font-family: var(--siteFontFamilyPrimary);
+
+        @include screens.respond-to(tablet-small) {
+            font-size: 20px;
+        }
+    }
+}

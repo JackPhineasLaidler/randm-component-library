@@ -1,0 +1,37 @@
+.arrowbutton {
+    width: 58px;
+    height: 58px;
+    border-radius: 2px;
+    border: solid 1px var(--sitePrimaryButtonColour);
+    cursor: pointer;
+
+    &:disabled {
+        opacity: .5;
+        pointer-events: none;
+    }
+
+    &:hover {
+        background-color: var(--sitePrimaryButtonInteractionColour);
+        border-color: var(--sitePrimaryButtonInteractionColour);
+    }
+
+    &__forward {
+        background: var(--sitePrimaryButtonColour);
+        background-image: var(--siteButtonArrowLightIcon);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    &__back {
+        background-color: var(--siteSecondaryButtonColour);
+        background-image: var(--siteButtonArrowDarkIcon);
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:hover {
+            background-image: var(--siteButtonArrowLightIcon);
+            rotate: 180deg;
+        }
+    }
+
+}
