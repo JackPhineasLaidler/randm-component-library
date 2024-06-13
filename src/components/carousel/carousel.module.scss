@@ -1,0 +1,143 @@
+@use '../../styles/mixins/screens' as screens;
+
+
+.carousel {
+    overflow: visible;
+
+    &--moving {
+        @include screens.respond-to(desktop-large) {
+            padding-top: 50px;
+            padding-bottom: 50px;
+            margin-top: -50px;
+            margin-bottom: -50px;
+            margin-left: -20px;
+            margin-right: -20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            overflow: hidden;
+        }
+    }
+
+    &__container {
+        overflow: visible;
+        width: 100%;
+    }
+
+    &__scroller {
+        display: flex;
+        transition: transform .4s ease 0s;
+        flex-wrap: wrap;
+        touch-action: pan-y;
+        gap: 40px;
+
+        @include screens.respond-to(tablet) {
+            gap: 30px;
+        }
+
+        @include screens.respond-to(desktop-small) {
+            gap: 40px;
+        }
+
+        @include screens.respond-to(desktop) {
+            gap: 30px;
+        }
+
+        &__narrow {
+            @include screens.respond-to(desktop) {
+                gap: 40px;
+            }
+        }
+    }
+
+
+
+    &__slide {
+        position: relative;
+        display: flex;
+        visibility: hidden;
+
+
+        &:not(:first-of-type) {
+            display: none;
+        }
+
+        .carousel--moving & {
+            visibility: visible;
+        }
+    
+        &--active {
+            visibility: visible;
+        }
+
+        &--visible {
+            &:not(:first-of-type) {
+                display: flex;
+            }
+        }
+    
+        &::before {
+            background: var(--siteCardBackdropColour);
+            border-radius: 4px;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            content: '';
+            z-index: -10;
+            top: 0;
+            left: 0;
+            transform: rotate(-5deg);
+            transition: transform .2s ease;
+    
+            .carousel--moving & {
+                transform: rotate(0deg);
+            }
+        }
+    
+        &:nth-of-type(2n+2) {
+            &:before {
+                transform: rotate(10deg);
+    
+                .carousel--moving & {
+                    transform: rotate(0deg);
+                }
+            }
+        }
+    
+        &:nth-of-type(2n+4) {
+            &:before {
+                transform: rotate(-7deg);
+                top: 20px;
+    
+                .carousel--moving & {
+                    transform: rotate(0deg);
+                    top: 0px;
+                }
+            }
+        }
+    
+        &:nth-of-type(3n+3):before {
+            &:before {
+                top: 20px;
+                transform: rotate(-7deg);
+    
+                .carousel--moving & {
+                    transform: rotate(0deg);
+                    top: 0px;
+                }
+            }
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: flex-end;
+        max-width: var(--containerMaxWidth);
+        margin: auto;
+        margin-top: 46px;
+        gap: 12px;
+
+        &--hidden {
+            display: none;
+        }
+    }
+}

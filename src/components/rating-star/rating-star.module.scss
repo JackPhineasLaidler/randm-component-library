@@ -1,0 +1,17 @@
+.star {
+    display: flex;
+    line-height: 0;
+
+
+    &__background {
+        height: 21px;
+        display: inline-flex;
+        width: 20px;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--siteRatingStarColour);
+        color: var(--siteRatingStarSecondary);
+        border-radius: 1px;
+        padding-bottom: 1px;
+    }
+}

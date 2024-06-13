@@ -1,0 +1,29 @@
+@use "../../../styles/mixins/screens" as screens;
+
+
+.closebutton {
+  line-height: 1rem;
+  font-size: 17px;
+  color: var(--siteCloseButtonText);
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .2s ease;
+  background-color: var(--siteCloseButtonColour);
+  outline: none;
+  border: none;
+  
+  &:hover {
+      background-color: var(--siteCloseButtonInteractionColour);
+  }
+  
+  @include screens.respond-to(tablet) {
+      font-size: 18px;
+      height: 24px;
+      width: 24px;
+  }
+}

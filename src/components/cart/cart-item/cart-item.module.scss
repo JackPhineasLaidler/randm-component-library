@@ -1,0 +1,38 @@
+
+@use '../../../../shared/styles/mixins/screens' as screens;
+
+
+.cartitem {
+    font-family: 'Oldenburg';
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    position: relative;
+
+    @include screens.respond-to(tablet) {
+        gap: 20px;
+        flex-wrap: nowrap;
+
+    }
+
+    &:nth-of-type(2n+2){
+        > div:first-child {
+            &:before {
+                transform: rotate(-8deg);
+                left: 5px;
+                top: 2px;
+            }
+        }
+    }
+
+    &:nth-of-type(2n+4) {
+        > div:first-child {
+            &:before {
+                transform: rotate(-11px);
+            }
+        }
+    }
+
+
+
+}

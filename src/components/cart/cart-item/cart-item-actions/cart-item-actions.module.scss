@@ -1,0 +1,41 @@
+@use '../../../../../shared/styles/mixins/screens' as screens;
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin-left: calc(96px + 16px);
+    width: 100%;
+
+    @include screens.respond-to(tablet-small) {
+        flex-direction: column-reverse;
+        align-items: flex-end;
+        margin-left: 0;
+        width: auto;
+    }
+
+    fieldset {
+        margin-bottom: 0;
+    }
+}
+
+.modal {
+    max-width: 650px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    &__buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        
+
+        > button {
+            width: 100%;
+
+            @include screens.respond-to(tablet) {
+                width: calc(50% - 5px);
+            }
+        }
+    }
+}
