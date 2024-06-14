@@ -1,0 +1,23 @@
+$breakpoints: (
+    'mobile-tiny': (max-width: 330px),
+    'mobile': (min-width: 330px),
+    'mobile-large': (min-width: 490px),
+    'tablet-small': (min-width: 580px),
+    'tablet': (min-width: 728px),
+    'tablet-large': (min-width: 840px),
+    'desktop-small': (min-width: 1020px),
+    'desktop': (min-width: 1280px),
+    'desktop-large': (min-width: 1444px),
+    ) !default;
+
+// Mixin to manage responsive breakpoints
+// @author Kitty Giraudel
+@mixin respond-to($breakpoint) {
+    // If the key exists in the map
+    @if map-has-key($breakpoints, $breakpoint) {
+        // Prints a media query based on the value
+        @media #{inspect(map-get($breakpoints, $breakpoint))} {
+            @content;
+        }
+    }
+}
